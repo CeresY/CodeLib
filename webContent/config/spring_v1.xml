@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="hi" class="web.spring.demo1.Hi">
+		<property name="msg" value="Mrs.Brown"/>
+		<property name="date">
+			<!-- <ref bean="date1"/> -->
+			<bean id="date1" class="java.util.Date"/>
+		</property>
+	</bean>
+	
+	<bean id="hiInit" class="web.spring.demo1.Hi" init-method="myInit"/>
+	
+	<bean id="hiImpl" class="web.spring.demo1.Hi"/>
+	
+	<bean id="hidestroy" class="web.spring.demo1.HiDestroy" init-method="initM" destroy-method="desM"/>
+	
+	<bean id="hw" class="web.spring.demo1.HelloWord">
+		<property name="msg">
+			<list>
+				<value>January</value>
+				<value>February</value>
+				<value>March</value>
+			</list>
+		</property>
+		
+		<property name="container">
+			<set>
+				<value>Apirl</value>
+				<value>May</value>
+				<value>June</value>
+			</set>
+		</property>
+		
+		<property name="container1">
+			<map>
+				<entry key="k1" value="v1"/>
+				<entry key="k2" value="v2"/>
+				<entry key="k3" value="v3"/>
+			</map>
+		</property>
+	</bean>
+	
+</beans>

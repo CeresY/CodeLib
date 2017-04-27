@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean id="dataSource" class="org.apche.commons.dbcp.BasicDataSouce" destroy-mehod="close">
+	<property name="" value=""></property>
+</bean>
+
+<bean id="txManager" class="org.springframework.jdbc.dataSource.DataSourceTransactionManager">
+	<property name="dataSource" ref="dataSource"/>
+</bean>
+
+<tx:advice id="txAdvice" transaction-manager="txManager">
+	<tx:method name="get*" propagation="nestied"/>
+</tx:advice>
+
+<aop:config>
+	<aop:pointcut id="pt1" expression="execution(* web.spring.aspectJ.*(..))"/>
+	<aop:advisor adivce-ref="txAdvice" pointcut-ref="pt1"/>
+</aop:config>

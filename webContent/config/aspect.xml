@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean id="asPojo" class="web.spring.AspectPojo"/>
+<aop:config>
+	<aop:aspect ref="asPojo">
+		<aop:before pointcut="execution(* web.spring.implement.ServiceImpl.doSth(**))" method="sounds"/>
+	</aop:aspect>
+</aop:config>
+
+<!-- 不要重复配置，比如poincut -->
+<aop:config>
+	<!-- 定义在外部的pointcut可以被多个aspect引用 -->
+	<aop:pointcut id="overPt1" expression="execution(* web.spring.implement.ServicImpl.doSth(..))"/>
+
+	<aop:aspect ref="asPojo">
+		<aop:pointcut id="pt1" expression="execution(* web.spring.implement.ServicImpl.doSth(..))"/>
+		
+		<aop:befor pointcut-ref="pt1" method="sounds"/>
+	</aop:aspect>
+
+</aop:config>

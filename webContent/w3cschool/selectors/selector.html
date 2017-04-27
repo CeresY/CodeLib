@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+<title>在此处插入标题</title>
+
+<style type="text/css">
+	.bt {
+		background-color: #D4D0C8;
+		border: 0px solid;
+		border-left: 16px solid black;
+		padding: 6px 6px;
+		font-weight: bold;
+	}
+	
+	div.show {
+		width:9cm; height:3cm; 
+		background-color:#D4D0C8;
+	}
+	
+	/*------1. 派生选择器------*/
+	h4 strong {
+    	color: blue;
+    }
+	strong {
+		color: orange;
+	}
+	h4 {
+		color: red;
+    }
+	
+	/*------2. id选择器------*/
+	#sidebar p {
+		font-style: italic;
+		text-align: left;
+		margin-top: 0.5em;
+	}
+	#sidebar {
+		border: 1px dotted #000;
+		padding: 10px;
+	}
+	
+	/*------3. 类选择器------*/
+	.center {text-align: center}
+	.fancy td {
+		color: #f60;
+		background: #666;
+	}
+	td.fancyC {
+		color: white;
+		background: #666;
+	}
+	#table1 {
+		border-collapse: collapse
+		border: 1px black;
+	}
+	
+	/*------4. 文本------*/
+	p#p4 {
+		text-indent: 2em;/*所有段落的首行缩进 2em*/
+		/*text-align: center;文本居中*/
+	}
+	
+	/*------5. 列表------*/
+	ul#disc {list-style-type : square}/*列表图标为方块*/
+	
+	/*------6. 轮廓------*/
+	p#p6 {
+		border:red solid thin;
+		outline:#0F59BA solid thick;
+	}
+	
+	/*------7. 定位------*/
+	img.normal {
+		position:absolute;
+		/*top:0px;*/
+		bottom:0px
+	}
+	div#d7 {
+		background-color:gray;
+		width:300px;
+		height:100px;
+		overflow: auto; /*hidden*/
+		
+	}
+	
+	/*------8. 浮动------*/
+	ul#u8 {
+		float:left;
+		width:100%;
+		padding:0;
+		margin:0;
+		list-style-type:none;
+	}
+	ul#u8 a {
+		float:left;
+		width:7em;
+		text-decoration:none;
+		color:white;
+		background-color:purple;
+		padding:0.2em 0.6em;
+		border-right:1px solid white;
+	}
+	ul#u8 a:hover {background-color:#ff3300}
+	ul#u8 li {display:inline}
+	img#i8, img#i8_2 {
+	  float:left;
+	  clear:both;/**/
+  	}
+	
+	
+</style>
+
+</head>
+<body>
+	<div class="bt">1. 派生选择器</div>
+	<p>晓看红湿处，花重锦官城。<strong>-杜甫</strong></p>
+	<h4>伤情处、高城望断，灯火已黄昏</h4>
+	<h4>后记：<strong>功夫应在诗外 </strong></h4><br>
+
+	<!-- ------------------------------ -->
+	<div class="bt">2. id选择器</div><br>
+	<div id="sidebar">
+	人生若只如初见<p>执子之手，与子偕老天地合，乃敢与君绝</p>
+	</div><br>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">3. 类选择器</div>
+	<h3 class="center">
+	This heading will be center-aligned
+	</h3>
+	<table id="table1">
+	<tr class="fancy"><td>排名</td><td>联赛</td><td>国家</td></tr>
+	<tr><td>1</td><td>西班牙甲级联赛</td><td class="fancyC">西班牙</td></tr>
+	<tr><td>2</td><td>巴克莱超级联赛</td><td class="fancyC">英格兰</td></tr>
+	</table><br>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">4. 文本</div>
+	<div class="show">
+		<p id="p4">
+		说班婕妤应以《怨歌行》开篇，说杨贵妃更应该拿《长恨歌》来作题，可是不，
+		有了纳兰容若的一句“人生若只如初见”，一切有了开始存在的理由。
+		</p>
+	</div><br>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">5. 列表</div>
+	<div class="show">
+		<ul class="disc">
+		<li>咖啡</li>
+		<li>茶</li>
+		<li>可口可乐</li>
+		</ul>
+	</div><br>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">6. 轮廓</div>
+	<p id="p6">
+		<b>她言道：</b>
+		“贤圣之君皆有名臣在侧，三代末主乃有嬖女。”
+	</p>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">7. 定位</div>
+	<h1>This is a Heading</h1>
+	<img class="normal" src="../resouce/1.JPG" style="width: 3cm; height: 4cm"/>
+	<p>一些文本。一些文本。一些文本。一些文本。一些文本。一些文本。</p>
+	
+	<p>
+	如果元素中的内容超出了给定的宽度和高度属性，
+	overflow 属性可以确定是否显示滚动条等行为。
+	</p>
+
+	<div id="d7">
+	这个属性定义溢出元素内容区的内容会如何处理。
+	如果值为 scroll，不论是否需要，用户代理都会提供一种滚动机制。
+	因此，有可能即使元素框中可以放下所有内容也会出现滚动条。
+	默认值是 visible。<br>
+	这个属性定义溢出元素内容区的内容会如何处理。
+	如果值为 scroll，不论是否需要，用户代理都会提供一种滚动机制。
+	因此，有可能即使元素框中可以放下所有内容也会出现滚动条。
+	默认值是 visible。
+	</div>
+	<a href="#">Link one</a><br>
+	
+	<!-- ------------------------------ -->
+	<div class="bt">8. 浮动</div><br>
+	<ul id="u8">
+	<li><a href="#">Link one</a></li>
+	<li><a href="#">Link two</a></li>
+	<li><a href="#">Link three</a></li>
+	<li><a href="#">Link four</a></li>
+	</ul>
+	<br>
+	<img id="i8" src="../resouce/1.JPG" style="width: 3cm; height: 4cm"/>
+	<img id="i8_2" src="../resouce/1.JPG" style="width: 3cm; height: 4cm"/>
+	
+	
+</body>
+</html>
