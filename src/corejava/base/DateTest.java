@@ -43,10 +43,10 @@ public class DateTest {
 	 */
 	@Test
 	public void dayOfWeek() throws ParseException {
-		Date date = sdf.parse("20170424");
+		Date date = sdf.parse("20170101");
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		int day = calendar.get(Calendar.DAY_OF_WEEK);
-		System.out.println(day);
+		System.out.println(day == 1 ? 7 : day-1);
 	}
 }
