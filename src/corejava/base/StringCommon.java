@@ -1,27 +1,20 @@
 package corejava.base;
 
+import org.junit.Test;
+
 public class StringCommon {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		/*String target = "0123456";
-		String r = filterCustomerNo2(target);
-		System.out.println(r);*/
-		equalsM();
-	}
-	
-	public static void equalsM() {
+	@Test
+	public void equalsM() {
 		String st1 = "hello";
 		String st2 = "hello";
 		System.out.println(st1==st2);
 		System.out.println(st1.endsWith(st2));
 		System.out.println(st1.hashCode());
-		System.out.println(st2.hashCode());
+		System.out.println(st2.subSequence(0, 3));
 	}
 	
-	private static String filterCustomerNo(String customerNo)
+	private String filterCustomerNo(String customerNo)
 	{
 		if (customerNo == null)
 			return "";
@@ -33,7 +26,7 @@ public class StringCommon {
 		return realCustomerNo;
 	}
 	
-	private static String filterCustomerNo2(String customerNo)
+	private String filterCustomerNo2(String customerNo)
 	{
 		if (customerNo == null)
 			return "";
