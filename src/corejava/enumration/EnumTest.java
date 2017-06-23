@@ -87,8 +87,11 @@ public class EnumTest {
 		
 //		System.out.println(Gender.FEMALE);
 		
-		//System.out.println(GenderImpl.FEMALE.getName());
-		//GenderImpl.FEMALE.info();
+//		System.out.println(GenderImpl.FEMALE.getName());
+//		GenderImpl.FEMALE.info();
+		System.out.println(GenderImpl.FEMALE);
+		System.out.println(GenderImpl.FEMALE.getName());
+		System.out.println(1111111);
 		
 //		System.out.println(Gender.MIUS.eval(1, 9));
 	}
