@@ -1,5 +1,9 @@
 package corejava.enumration;
 
 public enum Color {
-	RED,GREEN,BLUE ;    // 定义三个枚举的类型
+	RED("RED"),GREEN("GREEN"),BLUE("BLUE");
+	String name;
+	Color(String name) {
+		this.name = name;
+	}
 }
