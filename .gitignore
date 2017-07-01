@@ -1,4 +1,4 @@
-
+﻿
 # Eclipse
 # ============================
 *.pydevproject
@@ -19,6 +19,7 @@ worm.out
 .mymetadata
 local.properties
 .loadpath
+.gitignore
 
 
 # Package Files #
@@ -48,3 +49,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+*.pub
