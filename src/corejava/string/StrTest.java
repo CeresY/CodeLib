@@ -1,4 +1,4 @@
-package mian;
+package corejava.string;
 
 public class StrTest {
 

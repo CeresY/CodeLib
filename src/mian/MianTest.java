@@ -26,7 +26,7 @@ public class MianTest {
 		/*
 //		Descrip descrip = new CodeDescrip();
 //		descrip.function("");
-		boolean flag = false; //false:½»Ò×Õý³££»true:´íÎó½»Ò×¡£
+		boolean flag = false; //false:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½true:ï¿½ï¿½ï¿½ï¿½ï¿½×¡ï¿½
 		flag = flag||true;
 		System.out.println(flag);
 		try {
@@ -81,15 +81,15 @@ public class MianTest {
 		Set<String> keySet = map.keySet();
 		for(String key : keySet) {
 			if(("BSCNTY").equals(key)) {
-				pracdeList.add("BSCNTY" + map.get(key));//¹ú¼ÒÂë
+				pracdeList.add("BSCNTY" + map.get(key));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				continue;
 			}
 			if(("BSPAY").equals(key)) {
-				pracdeList.add("BSPAY" + map.get(key));//¸¶¿î·½Ê½
+				pracdeList.add("BSPAY" + map.get(key));//ï¿½ï¿½ï¿½î·½Ê½
 				continue;
 			}
 			if(("BSREN").equals(key)) {
-				pracdeList.add("BSREN" + map.get(key));//½»Ò×Âë
+				pracdeList.add("BSREN" + map.get(key));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				continue;
 			}
 		}
@@ -102,7 +102,7 @@ public class MianTest {
 		String str = "/BOP/EF/CN/A01/Z01/E/FSADFSA";
 //		String str = "BOP/CNCNZ01/Z01CDEFG";
 		String[] a = str.split("/E/");
-		System.out.println("¸öÊý£º" + a.length);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + a.length);
 		for(int i=0; i<a.length; i++) {
 			System.out.println(a[i]);
 		}
@@ -116,7 +116,7 @@ public class MianTest {
 			System.out.println(s[i]);
 			count++;
 		}
-		System.out.println("¸öÊý£º" + count);
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + count);
 		System.out.println("E[5]: " + s[5]);
 		*/
 	}
@@ -128,16 +128,16 @@ public class MianTest {
 	} 
 	
 	public void pattern() {
-		String str = "less¡£ismore¡¶ºº×Ö²âÊÔ¡· e[s]ta{bl-is}h<ÈËÉú Èç¡¾ÄæÂÃ£¬ÎÒ¡¿Òà.ÊÇ/ÐÐÈË>";
-		String regex = "[\\£û\\£ý\\£Û\\£Ý\\¡¾\\¡¿\\£¨\\£©\\£®\\¡£\\£­\\£ß\\ \\{\\}\\[\\]\\(\\)\\.\\-\\¡¶\\¡·\\£¼\\£¾\\£Ü\\£¯\\/]";
-		String regex2 = "[\\£û|\\£ý|\\£Û|\\£Ý|\\¡¾|\\¡¿|\\£¨|\\£©|\\£®|\\¡£|\\£­|\\£ß|\\ |\\{|\\}|\\[|\\]|\\(|\\)|\\.|\\-|\\¡¶|\\¡·|\\£¼|\\£¾|\\£Ü|\\£¯|\\/]";
+		String str = "lessï¿½ï¿½ismoreï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½Ô¡ï¿½ e[s]ta{bl-is}h<ï¿½ï¿½ï¿½ï¿½ ï¿½ç¡¾ï¿½ï¿½ï¿½Ã£ï¿½ï¿½Ò¡ï¿½ï¿½ï¿½.ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½>";
+		String regex = "[\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ \\{\\}\\[\\]\\(\\)\\.\\-\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\ï¿½ï¿½\\/]";
+		String regex2 = "[\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ |\\{|\\}|\\[|\\]|\\(|\\)|\\.|\\-|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\ï¿½ï¿½|\\/]";
 		Matcher m =  Pattern.compile(regex).matcher(str);
 		System.out.println(m.replaceAll(""));
 		System.out.println(str.replaceAll(regex2, ""));
 	}
 	
 	public void bariry() {
-		String str = "2015Äê10ÔÂ31ÈÕ";
+		String str = "2015ï¿½ï¿½10ï¿½ï¿½31ï¿½ï¿½";
 		byte[] b = str.getBytes();
 		StringBuffer sb = new StringBuffer();
 		for(int i=0; i<b.length; i++) {
@@ -167,7 +167,7 @@ public class MianTest {
 		System.out.println(i);
 		try {
 			if(clract == null || "".equals(clract)) {
-				throw new IllegalArgumentException("´«Èë²ÎÊýÓÐÎó");
+				throw new IllegalArgumentException("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			}
 			Map<String, Object> ckyMap = new HashMap<String, Object>();
 //			System.out.println(ckyMap.isEmpty());
@@ -280,7 +280,7 @@ public class MianTest {
 	public void i() {
 		String filePath = "x";
 		if(!"".equals(filePath) && filePath != null) {
-			System.out.println("ÓÐÖµ");
+			System.out.println("ï¿½ï¿½Öµ");
 		} else {
 			System.out.println("Ã»Öµ");
 		}
@@ -293,7 +293,7 @@ public class MianTest {
 		for(int k : iList) {
 			System.out.println(k);
 		}
-		System.out.println("ÖØÐÂ¸³Öµ");
+		System.out.println("ï¿½ï¿½ï¿½Â¸ï¿½Öµ");
 		
 		List<Integer> iList2 = new ArrayList<Integer>();
 		iList2.add(111);
@@ -324,17 +324,6 @@ public class MianTest {
 		}
 	}
 	
-	public void test3() {
-		Proj p = null;
-		String m = p.getM();
-		if(!"m".equals(m)) {
-			System.out.println("error");
-		} else {
-			System.out.println("succ");
-		}
-		
-	}
-	
 	public void test2() {
 		String str = "1.2";
 		int i = Integer.parseInt(str);
@@ -357,7 +346,7 @@ public class MianTest {
 			}
 			sb.append(c);
 		}
-		System.out.println("ÐòºÅ:  "+sb.toString());
+		System.out.println("ï¿½ï¿½ï¿½:  "+sb.toString());
 	}
 	
 	public void testFor() {
