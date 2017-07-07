@@ -3,7 +3,8 @@ package thread.queue;
 import java.util.Vector;
 
 /**
- * 这是一个失败的案例。缺少同步
+ * 这是一个失败的案例。缺少同步<br/>
+ * 《java thread》 --- Scott Oaks 非常适合多线程入门
  * @author st-yz2011
  *
  */
