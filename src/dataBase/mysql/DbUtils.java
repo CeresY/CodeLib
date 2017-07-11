@@ -19,19 +19,27 @@ public class DbUtils {
 	static Statement statement = null;
 	
 	public static Statement getStatement() {
+		conn = getConnection();
+		try {
+			statement = conn.createStatement();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return statement;
+	}
+	
+	public static Connection getConnection() {
 		try{
-            //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("成功加载MySQL驱动！");
             conn = DriverManager.getConnection(URL, USER, PWD);
-            statement = conn.createStatement();
         }catch(ClassNotFoundException e1){
             System.out.println("找不到MySQL驱动!");
             e1.printStackTrace();
         } catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return statement;
+		return conn;
 	}
 	
 	public static void close() {

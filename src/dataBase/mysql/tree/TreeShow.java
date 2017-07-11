@@ -19,7 +19,7 @@ public class TreeShow {
 	
 	@Test
 	public void showTreeByNode() {
-		String nodeId = "2c904ef35cf76f1c015cf88da47a0021";
+		String nodeId = "2c904ef65d2a207e015d2a275f4602e3";
 		String sql = "SELECT * FROM system_permission t1";
 		List<TreeNode> list = new ArrayList<TreeNode>();
 		Statement state = DbUtils.getStatement();
@@ -37,8 +37,6 @@ public class TreeShow {
 				obj.setParentId(rs.getString("parent_"));
 				list.add(obj);
 			}
-			
-			System.out.println(list.size());
 			List<TreeNode> sortList = new ArrayList<TreeNode>();
 			findParent(sortList, list, nodeId);
 			show(sortList);
@@ -65,13 +63,9 @@ public class TreeShow {
 	}
 	
 	public void show(List<TreeNode> sort){
-		int leve = 0;
+		System.out.println("ID\t" + "displayName\t" + "name\t" + "parentid");
 		for(int i= sort.size()-1; i>=0; i--) {
 			TreeNode obj = sort.get(i);
-			
-			for(int j=0; j<leve; j++) {
-				
-			}
 			System.out.println(obj.getId() + "\t" + obj.getName() + "\t" + obj.getSingle() + "\t" + obj.getParentId());
 		}
 	}
