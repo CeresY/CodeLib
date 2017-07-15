@@ -13,7 +13,7 @@ public class StrTest {
 	public void finalTest() {
 //		String s1 = "aaa";
 		String s1 = new String("aaa");
-		finalTest2(s1);
+		// 删除这行。finalTest2(s1);
 		//System.out.println(s1);
 		
 		//--------------
