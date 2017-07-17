@@ -1,19 +1,12 @@
 package corejava.string;
 
+import org.junit.Test;
+
 public class StrTest {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		StrTest f = new StrTest();
-		f.finalTest();
-	}
-	
 	public void finalTest() {
 //		String s1 = "aaa";
 		String s1 = new String("aaa");
-		finalTest2(s1);
 		//System.out.println(s1);
 		
 		//--------------
@@ -22,8 +15,9 @@ public class StrTest {
 		System.out.println(i);
 	}
 	
-	public void finalTest2(String s) {
-		s = "bbb";
+	@Test
+	public void finalTest2() {
+		System.out.println("abSDdF".toUpperCase());
 	}
 	
 	public void finalTest3(int ii) {
