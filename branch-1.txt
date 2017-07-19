@@ -3,3 +3,4 @@ create conflict
 merge 1, use --no-ff。
 fetch code and merge.
 today
+public void paintBorder
