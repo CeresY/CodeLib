@@ -1,1 +1,6 @@
-create branch-1
+create branch-1。
+create conflict
+merge 1, use --no-ff。
+fetch code and merge.
+today
+public void paintBorder
