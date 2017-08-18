@@ -2,6 +2,7 @@ package dataBase.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -12,11 +13,12 @@ import java.sql.Statement;
  *
  */
 public class DbUtils {
-	static final String URL = "jdbc:mysql://localhost:3306/vbi2";
+	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
 	static final String USER = "vbi";
 	static final String PWD = "123456";
 	static Connection conn = null;
 	static Statement statement = null;
+	static PreparedStatement ps = null;
 	
 	public static Statement getStatement() {
 		conn = getConnection();
@@ -28,7 +30,25 @@ public class DbUtils {
 		return statement;
 	}
 	
+	public static PreparedStatement getPs(String sql) {
+		try {
+			if(conn == null) {
+				conn = getConnection();
+			}
+			
+			if(ps == null) {
+				ps = conn.prepareStatement(sql);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ps;
+	}
+	
 	public static Connection getConnection() {
+		if(conn != null) {
+			return conn;
+		}
 		try{
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("成功加载MySQL驱动！");
@@ -46,6 +66,16 @@ public class DbUtils {
 		if(statement != null) {
 			try {
 				statement.close();
+				System.out.println("关闭statement");
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(ps != null) {
+			try {
+				ps.close();
+				System.out.println("关闭ps");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -54,6 +84,7 @@ public class DbUtils {
 		if(conn != null) {
 			try {
 				conn.close();
+				System.out.println("关闭conn");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

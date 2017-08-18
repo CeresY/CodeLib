@@ -1,20 +1,18 @@
 package corejava.control;
 
+import org.junit.Test;
+
 import corejava.base.*;
 public class Flow {
 	static int LEN = 20;
 	
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		//FlowInter in = new FlowInter();
-		
-		Flow flow = new Flow();
-		flow.breakArea();
+	public static void mian() {
+		Flow foo = new Flow();
+		foo.breakWhile();
 	}
 	
-	protected void breakArea() {
+	@Test
+	public void breakArea() {
 		for(int m=0; m<LEN; m++) {
 			System.out.println("M=" + m);
 			for(int n=0; n<LEN; n++) {
@@ -26,4 +24,15 @@ public class Flow {
 			System.out.println();
 		}
 	} 
+	
+	@Test
+	public void breakWhile() {
+		int i = 10;
+		while(i-->0) {
+			if(i == 5) {
+				break;
+			}
+			System.out.println(i);
+		}
+	}
 }

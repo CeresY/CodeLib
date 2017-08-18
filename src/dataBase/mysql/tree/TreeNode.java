@@ -2,13 +2,13 @@ package dataBase.mysql.tree;
 
 public class TreeNode {
 	private String id;
+	private String displayName;
+	private String sign;
+	private String parentId;
 	private boolean leaf;
 	private Integer level;
 	private double order;
-	private String name;
-	private String single;
 	private boolean menu;
-	private String parentId;
 	
 	public String getId() {
 		return id;
@@ -34,17 +34,17 @@ public class TreeNode {
 	public void setOrder(double order) {
 		this.order = order;
 	}
-	public String getName() {
-		return name;
+	public String getDisplayName() {
+		return displayName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setDisplayName(String displayName) {
+		this.displayName = displayName;
 	}
-	public String getSingle() {
-		return single;
+	public String getSign() {
+		return sign;
 	}
-	public void setSingle(String single) {
-		this.single = single;
+	public void setSign(String sign) {
+		this.sign = sign;
 	}
 	public boolean isMenu() {
 		return menu;

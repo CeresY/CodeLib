@@ -18,6 +18,8 @@ public class StrTest {
 	@Test
 	public void finalTest2() {
 		System.out.println("abSDdF".toUpperCase());
+		String str = "abc:assign";
+		System.out.println(str.split(":")[0]);
 	}
 	
 	public void finalTest3(int ii) {
