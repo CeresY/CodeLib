@@ -1,93 +1,51 @@
 package dataBase.mysql;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.sql.Statement;
 
-
-/**
- * mysql工具类
- * @author yangzhan-xps13
- *
- */
 public class DbUtils {
-	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
-	static final String USER = "vbi";
-	static final String PWD = "123456";
-	static Connection conn = null;
-	static Statement statement = null;
-	static PreparedStatement ps = null;
 	
-	public static Statement getStatement() {
-		conn = getConnection();
-		try {
-			statement = conn.createStatement();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return statement;
+	public static enum DB {
+		ORACLE, MYSQL;
 	}
 	
-	public static PreparedStatement getPs(String sql) {
-		try {
-			if(conn == null) {
-				conn = getConnection();
-			}
-			
-			if(ps == null) {
-				ps = conn.prepareStatement(sql);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+	public static Statement getStatement(DB type) {
+		if(type.equals(DB.ORACLE)) {
+			return DbOracleUtils.getStatement();
+		} else if(type.equals(DB.MYSQL)) {
+			return DbMysqlUtils.getStatement();
+		} else {
+			return null;
 		}
-		return ps;
 	}
 	
-	public static Connection getConnection() {
-		if(conn != null) {
-			return conn;
+	public static PreparedStatement getPs(String sql, DB type) {
+		if(type.equals(DB.ORACLE)) {
+			return DbOracleUtils.getPs(sql);
+		} else if(type.equals(DB.MYSQL)) {
+			return DbMysqlUtils.getPs(sql);
+		} else {
+			return null;
 		}
-		try{
-            Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("成功加载MySQL驱动！");
-            conn = DriverManager.getConnection(URL, USER, PWD);
-        }catch(ClassNotFoundException e1){
-            System.out.println("找不到MySQL驱动!");
-            e1.printStackTrace();
-        } catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return conn;
 	}
 	
-	public static void close() {
-		if(statement != null) {
-			try {
-				statement.close();
-				System.out.println("关闭statement");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if(ps != null) {
-			try {
-				ps.close();
-				System.out.println("关闭ps");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		if(conn != null) {
-			try {
-				conn.close();
-				System.out.println("关闭conn");
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+	public static Connection getConnection(DB type) {
+		if(type.equals(DB.ORACLE)) {
+			return DbOracleUtils.getConnection();
+		} else if(type.equals(DB.MYSQL)) {
+			return DbMysqlUtils.getConnection();
+		} else {
+			return null;
 		}
 	}
+	
+	public static void close(DB type) {
+		if(type.equals(DB.ORACLE)) {
+			DbOracleUtils.close();
+		} else if(type.equals(DB.MYSQL)) {
+			DbMysqlUtils.close();
+		}
+	}
+	
 }

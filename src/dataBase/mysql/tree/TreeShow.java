@@ -11,6 +11,7 @@ import java.util.List;
 import org.junit.Test;
 
 import dataBase.mysql.DbUtils;
+import dataBase.mysql.DbUtils.DB;
 
 /**
  * mysql由于没有startWith connectBy所以需自己写一个小工具来展示树结构
@@ -22,13 +23,14 @@ public class TreeShow {
 	
 	private static final File destination = new File("C://temp//tree.txt");
 	
+	private static final DB TYPE = DB.ORACLE;
 	/**
 	 * 从叶子节点展示到根节点
 	 */
 	@Test
 	public void showLeafToRoot() {
 		String childId = "2c904e9f5cc45ca2015cc4a778121922";
-		state = DbUtils.getStatement();
+		state = DbUtils.getStatement(TYPE);
 		
 		String sql = "SELECT * FROM SYSTEM_PERMISSION T ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
 		List<TreeNode> allList = TreeUtils.setResult(state, sql);
@@ -36,7 +38,7 @@ public class TreeShow {
 		findLeafToRoot(showList, allList, childId);
 		show(showList);
 		
-		DbUtils.close();
+		DbUtils.close(TYPE);
 	}
 	
 	/**
@@ -44,14 +46,14 @@ public class TreeShow {
 	 */
 	@Test
 	public void showRootToLeaf() {
-		state = DbUtils.getStatement();
+		state = DbUtils.getStatement(TYPE);
 		
-		/*String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
-		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);*/
+		String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
+		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);
 		
-		String singleRoot = "d117350374534819b7b786a886bef71e";
+		/*String singleRoot = "d117350374534819b7b786a886bef71e";
 		String sql_singleRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.ID = '"+singleRoot+"' ";
-		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);
+		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);*/
 		
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(destination));
@@ -61,7 +63,7 @@ public class TreeShow {
 			e.printStackTrace();
 		}
 		
-		DbUtils.close();
+		DbUtils.close(TYPE);
 	}
 	
 	/**
@@ -91,7 +93,7 @@ public class TreeShow {
 		for(int i=0; i<rootList.size(); i++) {
 			TreeNode node = rootList.get(i);
 			TreeUtils.writerFile(bw, writerNode(node));
-			this.showNode(node);
+			System.out.println(this.writerNode(node));
 			
 			List<TreeNode> childs = this.getChilds(node.getId());
 			while(childs != null) {
@@ -131,19 +133,6 @@ public class TreeShow {
 			System.out.print(obj.getDisplayName()+" ⇨ "+obj.getId()+" ⇨ "+obj.getSign()+" ⇨ "+obj.getParentId());
 			System.out.println();
 		}
-	}
-	
-	private void showNode(TreeNode node) {
-		int level = node.getLevel();
-		for(; level>0 ; level--) {
-			if(level == 1) {
-				System.out.print("|----");
-			} else {
-				System.out.print("|    ");
-			}
-		}
-		System.out.print(node.getDisplayName()+" ⇨ "+node.getId()+" ⇨ "+node.getSign()+" ⇨ "+node.getParentId());
-		System.out.println();
 	}
 	
 	private String writerNode(TreeNode node) {

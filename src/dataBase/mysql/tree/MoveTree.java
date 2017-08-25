@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import dataBase.mysql.DbUtils;
+import dataBase.mysql.DbMysqlUtils;
 
 /**
  * 移动“权限树的位置”
@@ -24,7 +24,7 @@ public class MoveTree {
 	public void movePosition() {
 		// 大屏设计器 screenDesigner
 		String sql = "SELECT * FROM system_permission t where t.name='screenDesigner'";
-		stat = DbUtils.getStatement();
+		stat = DbMysqlUtils.getStatement();
 		List<TreeNode> rs = this.setResult(sql);
 	
 		if(rs != null && rs.size() == 1) {
@@ -36,12 +36,12 @@ public class MoveTree {
 		//show(rs);
 		moveLevel_(rs);
 		System.out.println("操作记录：" + rs.size());
-		DbUtils.close();
+		DbMysqlUtils.close();
 	}
 	
 	public void moveLevel_(List<TreeNode> list) {
 		String sql = "update system_permission set level_=? where id=?";
-		PreparedStatement ps = DbUtils.getPs(sql);
+		PreparedStatement ps = DbMysqlUtils.getPs(sql);
 		try {
 			for(int i=0; i<list.size(); i++) {
 				TreeNode node = list.get(i);
