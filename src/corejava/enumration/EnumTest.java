@@ -1,6 +1,15 @@
 package corejava.enumration;
 
+import org.junit.Test;
+
+
 public class EnumTest {
+	
+	@Test
+	public void formatter() {
+		String type = "number";
+		SchemaTypeEnum typeEnum = SchemaTypeEnum.fromValue(type);
+	}
 	
 	/*public enum Gender {
 		MALE("ÄÐ"), FEMALE("Å®");

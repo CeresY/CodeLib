@@ -1,6 +1,7 @@
 package dataBase.mysql.tree;
 
-import java.sql.Connection;
+import static dataBase.mysql.DbUtils.DB.ORACLE;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import dataBase.mysql.DbMysqlUtils;
+import dataBase.mysql.DbUtils;
+import dataBase.mysql.DbUtils.DB;
 
 /**
  * 移动“权限树的位置”
@@ -20,11 +22,13 @@ import dataBase.mysql.DbMysqlUtils;
 public class MoveTree {
 	private Statement stat = null;
 	
+	private static final DB TYPE = ORACLE;
+	
 	@Test
 	public void movePosition() {
 		// 大屏设计器 screenDesigner
 		String sql = "SELECT * FROM system_permission t where t.name='screenDesigner'";
-		stat = DbMysqlUtils.getStatement();
+		stat = DbUtils.getStatement(TYPE);
 		List<TreeNode> rs = this.setResult(sql);
 	
 		if(rs != null && rs.size() == 1) {
@@ -36,12 +40,12 @@ public class MoveTree {
 		//show(rs);
 		moveLevel_(rs);
 		System.out.println("操作记录：" + rs.size());
-		DbMysqlUtils.close();
+		DbUtils.close(TYPE);
 	}
 	
 	public void moveLevel_(List<TreeNode> list) {
 		String sql = "update system_permission set level_=? where id=?";
-		PreparedStatement ps = DbMysqlUtils.getPs(sql);
+		PreparedStatement ps = DbUtils.getPs(sql, TYPE);
 		try {
 			for(int i=0; i<list.size(); i++) {
 				TreeNode node = list.get(i);
@@ -89,7 +93,7 @@ public class MoveTree {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("SQL执行错误");
+			System.out.println("SQL执行错误\\n");
 		}
 		return list.isEmpty() ? null : list;
 	}

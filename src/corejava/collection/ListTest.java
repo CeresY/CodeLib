@@ -10,6 +10,14 @@ import org.junit.Test;
 
 public class ListTest {
 	@Test
+	public void readNullList() {
+		List<String> list = new ArrayList<String>();
+		for(String str : list) {
+			System.out.println(str);
+		}
+	}
+	
+	@Test
 	public void remove() {
 		List<String> list = new ArrayList<String>();
 		for(int i=0; i<10; i++) {

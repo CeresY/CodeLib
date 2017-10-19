@@ -5,7 +5,12 @@ public class TestTemp {
 		new CallTemplate().execute(new CallBack() {
 			@Override
 			public void roll() {
-				System.out.println("ÕâËã²»Ëã½Ó¿ÚÊµÀı»¯");
+				System.out.println("è¿™ç®—ä¸ç®—æ¥å£å®ä¾‹åŒ–");
+			}
+
+			@Override
+			public String display(String str) {
+				return str;
 			}
 		});
 	}

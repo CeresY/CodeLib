@@ -14,4 +14,10 @@ public class DateTest {
 		Date d2 = format.parse("201704");
 		System.out.println(d1.compareTo(d2));//-1
 	}
+	
+	@Test
+	public void systemDate() {
+		System.out.println("Millis: " + System.currentTimeMillis());
+		System.out.println("Nanotime: " + System.nanoTime());
+	}
 }

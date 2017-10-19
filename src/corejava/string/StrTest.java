@@ -4,6 +4,21 @@ import org.junit.Test;
 
 public class StrTest {
 
+	@Test
+	public void sub() {
+		String s = "0123456";
+		System.out.println(s.substring(0, 4));
+	}
+	
+	@Test
+	public void split() {
+		String s = ",b,,c,";
+		String[] arr = s.split(",");
+		for(String str : arr) {
+			System.out.println("["+str+"]");
+		}
+	}
+	
 	public void finalTest() {
 //		String s1 = "aaa";
 		String s1 = new String("aaa");

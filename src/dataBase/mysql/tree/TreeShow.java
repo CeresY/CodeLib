@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -23,7 +24,7 @@ public class TreeShow {
 	
 	private static final File destination = new File("C://temp//tree.txt");
 	
-	private static final DB TYPE = DB.ORACLE;
+	private static final DB TYPE = DB.MYSQL;
 	/**
 	 * 从叶子节点展示到根节点
 	 */
@@ -48,15 +49,17 @@ public class TreeShow {
 	public void showRootToLeaf() {
 		state = DbUtils.getStatement(TYPE);
 		
-		String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
-		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);
+		/*String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
+		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);*/
 		
-		/*String singleRoot = "d117350374534819b7b786a886bef71e";
+		String singleRoot = "2c904ef25eb82101015eb82a19690007";
 		String sql_singleRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.ID = '"+singleRoot+"' ";
-		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);*/
+		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);
 		
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(destination));
+			String filename = "C://temp//tree_"+String.valueOf(new Random(1000).nextInt())+".txt";
+			File destination_ = new File(filename);
+			BufferedWriter bw = new BufferedWriter(new FileWriter(destination_));
 			findRootToLeaf(bw, rootList);
 			bw.close();
 		} catch (IOException e) {

@@ -49,4 +49,28 @@ public class DateTest {
 		int day = calendar.get(Calendar.DAY_OF_WEEK);
 		System.out.println(day == 1 ? 7 : day-1);
 	}
+	
+	/**
+	 * 某周的周一是几号
+	 * @param week
+	 * @return
+	 */
+	@Test
+	public void getMonday() {
+		String week = "2017W36";
+		int year_ = Integer.parseInt(week.substring(0, 4));
+		int weekNo_ = Integer.parseInt(week.substring(5, 7));
+		Calendar cal = Calendar.getInstance();  
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);        
+        cal.set(Calendar.YEAR, year_); 
+        cal.set(Calendar.WEEK_OF_YEAR, weekNo_);
+        
+        // 格式化
+        String year = String.valueOf(cal.get(Calendar.YEAR));
+        int _month = cal.get(Calendar.MONTH) + 1;
+        String month = _month < 10 ? "0"+_month : String.valueOf(_month);
+        int _day = cal.get(Calendar.DAY_OF_MONTH);
+        String day = _day < 10 ? "0"+_day : String.valueOf(_day);
+        System.out.println(year+"-"+month+"-"+day);
+	}
 }
