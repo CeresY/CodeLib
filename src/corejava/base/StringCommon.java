@@ -3,7 +3,18 @@ package corejava.base;
 import org.junit.Test;
 
 public class StringCommon {
-
+	@Test
+	public void logic() {
+		System.out.println(false&&false);
+		System.out.println(false&false);
+		System.out.println(true&&true);
+		System.out.println(true&true);
+		System.out.println(true&&false);
+		System.out.println(true&false);
+		System.out.println(false&&true);
+		System.out.println(false&true);
+	}
+	
 	@Test
 	public void equalsM() {
 		String st1 = "hello";

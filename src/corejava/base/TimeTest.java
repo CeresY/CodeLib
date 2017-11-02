@@ -4,12 +4,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.junit.Test;
+
 public class TimeTest {
-	public static void test1() {
+	@Test
+	public void test1() {
 		System.out.println(System.currentTimeMillis());
 	}
 	
-	public static void test2() {
+	@Test
+	public void test2() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
 		try {
 			Date date = sdf.parse("19700101 00:00:00");
@@ -21,9 +25,5 @@ public class TimeTest {
 		}
 		System.out.println(new Date(-28800000L));
 		System.out.println(new Date(-120L));
-	}
-	
-	public static void main(String[] args) {
-		test2();
 	}
 }
