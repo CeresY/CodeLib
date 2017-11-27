@@ -16,6 +16,19 @@ public class EnumExp {
 		}
 	}
 	
+	public enum WEEK {
+		SUN, FRI;
+	}
+	
+	@Test
+	public void testFontColor() {
+		System.out.println(FontColor.BLACK);
+		System.out.println(FontColor.BLACK.name());
+		System.out.println(FontColor.BLACK.ordinal());
+		System.out.println(FontColor.BLACK.index);
+		System.out.println(FontColor.BLACK.toString());
+	}
+	
 	public enum Color {  
 	    RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);  
 	    // 成员变量  

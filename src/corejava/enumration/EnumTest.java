@@ -5,6 +5,28 @@ import org.junit.Test;
 
 public class EnumTest {
 	
+	public enum OPER {
+		ADD("add"), EDIT("edit"),DELETE("delete"),SAVE("save"),USE("use");
+		private String index;
+		private OPER(String index) {
+			this.index = index;
+		}
+		public String getIndex() {
+			return index;
+		}
+	}
+	
+	@Test
+	public void printSome() {
+		System.out.println("OPER.ADD: " + OPER.ADD);
+		System.out.println("OPER.ADD.index: " + OPER.ADD.index);
+		System.out.println("OPER.ADD.getIndex(): " + OPER.ADD.getIndex());
+		System.out.println("OPER.ADD.name(): " + OPER.ADD.name());
+		System.out.println("OPER.ADD.ordinal(): " + OPER.ADD.ordinal());
+		System.out.println("OPER.ADD.toString(): " + OPER.ADD.toString());
+	}
+	
+	
 	@Test
 	public void formatter() {
 		String type = "number";

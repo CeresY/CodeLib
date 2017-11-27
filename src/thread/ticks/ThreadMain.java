@@ -33,7 +33,7 @@ public class ThreadMain implements Runnable{
 					e.printStackTrace();
 					throw new IllegalArgumentException();
 				}
-				System.out.println(Thread.currentThread().getName()+"Ö´ÐÐ: "+run);
+				System.out.println(Thread.currentThread().getName()+"æ‰§è¡Œ: "+run);
 			} else {
 				Thread.currentThread().interrupt();
 				System.out.println(Thread.currentThread().getName() + "will die: " + run );

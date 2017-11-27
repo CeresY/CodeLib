@@ -2,13 +2,21 @@ package corejava.control;
 
 import org.junit.Test;
 
-import corejava.base.*;
 public class Flow {
 	static int LEN = 20;
-	
-	public static void mian() {
-		Flow foo = new Flow();
-		foo.breakWhile();
+	@Test
+	public void testIf() {
+		Integer i = 0;
+		if(i != null) {
+			if(i == 0) {
+				System.out.println("i=0");
+			}
+		} else {
+			System.out.println("i is null");
+			return;
+		}
+		
+		System.out.println("i=" + i);
 	}
 	
 	@Test

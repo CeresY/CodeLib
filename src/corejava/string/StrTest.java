@@ -5,6 +5,13 @@ import org.junit.Test;
 public class StrTest {
 
 	@Test
+	public void stringTemplateTest() {
+//		StringTemplate st = new StringTemplate("select $column$ from $table")
+//		st.SetAttribute("column", "uid");
+//		st.SetAttribute("table", "users");
+	}
+	
+	@Test
 	public void sub() {
 		String s = "0123456";
 		System.out.println(s.substring(0, 4));

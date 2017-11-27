@@ -22,7 +22,7 @@ public class Runner {
 		t2_2.start();
 		t3_2.start();*/
 		
-		//tm, tm2ÊÇÁ½¸ö¶ÀÁ¢µÄÏß³Ì¶ÔÏó£¬ËùÒÔÕâËûÃÇÆô¶¯µÄÏß³Ì¿ÉÒÔ¶ÀÁ¢£¬»¥Ïà²»Ó°Ïì
+		//tm, tm2æ˜¯ä¸¤ä¸ªç‹¬ç«‹çš„çº¿ç¨‹å¯¹è±¡ï¼Œæ‰€ä»¥è¿™ä»–ä»¬å¯åŠ¨çš„çº¿ç¨‹å¯ä»¥ç‹¬ç«‹ï¼Œäº’ç›¸ä¸å½±å“
 		
 		try {
 			t1.join();
@@ -33,7 +33,7 @@ public class Runner {
 		}
 		
 		long et = System.currentTimeMillis();
-		System.out.println("ºÄÊ±£º " + (et-bt) + " 1/1000 seconds");
+		System.out.println("è€—æ—¶ï¼š " + (et-bt) + " 1/1000 seconds");
 	}
 
 }

@@ -47,6 +47,10 @@ public class DateTest {
 		DbUtils.close(TYPE);
 	}
 	
+	public void updateTimeMysql() {
+		
+	}
+	
 	private String getRandom(boolean zero, int max) {
 		int i = new Random().nextInt(max);
 		if(!zero) {
