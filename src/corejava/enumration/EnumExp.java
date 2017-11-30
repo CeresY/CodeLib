@@ -16,17 +16,26 @@ public class EnumExp {
 		}
 	}
 	
+	public enum DATESCOPE {
+		DAY7;
+	}
+	
 	public enum WEEK {
 		SUN, FRI;
 	}
 	
 	@Test
 	public void testFontColor() {
-		System.out.println(FontColor.BLACK);
+		/*System.out.println(FontColor.BLACK);
 		System.out.println(FontColor.BLACK.name());
 		System.out.println(FontColor.BLACK.ordinal());
 		System.out.println(FontColor.BLACK.index);
-		System.out.println(FontColor.BLACK.toString());
+		System.out.println(FontColor.BLACK.toString());*/
+		System.out.println(DATESCOPE.DAY7);
+		System.out.println(DATESCOPE.DAY7);
+		System.out.println(DATESCOPE.DAY7.name());
+		System.out.println(DATESCOPE.DAY7.toString());
+		System.out.println(DATESCOPE.DAY7.ordinal());
 	}
 	
 	public enum Color {  

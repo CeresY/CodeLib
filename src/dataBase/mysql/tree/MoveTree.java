@@ -1,6 +1,6 @@
 package dataBase.mysql.tree;
 
-import static dataBase.mysql.DbUtils.DB.ORACLE;
+import static dataBase.mysql.utils.DbUtils.DB.ORACLE;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,8 +11,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import dataBase.mysql.DbUtils;
-import dataBase.mysql.DbUtils.DB;
+import dataBase.mysql.utils.DbUtils;
+import dataBase.mysql.utils.DbUtils.DB;
 
 /**
  * 移动“权限树的位置”

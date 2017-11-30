@@ -1,9 +1,23 @@
 package corejava.string;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import org.junit.Test;
 
 public class StrTest {
 
+	@Test
+	public void replaceTest() {
+		StrTest obj = new StrTest();
+		StrTest obj2 = null;
+		if(obj2 instanceof StrTest) {
+			System.out.println("正是在下");
+		} else {
+			System.out.println("你认错人了");
+		}
+	}
+	
 	@Test
 	public void stringTemplateTest() {
 //		StringTemplate st = new StringTemplate("select $column$ from $table")

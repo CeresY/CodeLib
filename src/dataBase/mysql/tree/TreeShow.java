@@ -11,8 +11,8 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import dataBase.mysql.DbUtils;
-import dataBase.mysql.DbUtils.DB;
+import dataBase.mysql.utils.DbUtils;
+import dataBase.mysql.utils.DbUtils.DB;
 
 /**
  * mysql由于没有startWith connectBy所以需自己写一个小工具来展示树结构
