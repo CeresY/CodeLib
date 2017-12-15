@@ -1,14 +1,19 @@
 package dataBase.mysql.date;
 
-import java.sql.Statement;
-import java.util.Random;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 import org.junit.Test;
 
-import dataBase.mysql.tree.TreeNode;
 import dataBase.mysql.utils.DbUtils;
 import dataBase.mysql.utils.DbUtils.DB;
 
@@ -92,6 +97,99 @@ public class DateTest {
 		}
 		DbUtils.close(TYPE);
 	}
+	
+	/**
+	 * 参考资料
+	 * {@link http://blog.csdn.net/u011637069/article/details/52046662}
+	 * @throws Exception
+	 */
+	@Test
+	public void findColumns() throws Exception {
+		String table = "VISU_SCHEMA_SYS";
+		Connection conn = DbUtils.getConnection(TYPE);
+		DatabaseMetaData dbmd = conn.getMetaData();
+		ResultSet resultSet = dbmd.getTables(null, "%", table.toUpperCase(), new String[]{"TABLE"});
+		
+		while(resultSet.next()) {
+			String tableName = resultSet.getString("TABLE_NAME").toUpperCase();
+			System.out.println("--------表名["+tableName+"]--------");
+			if(table.equals(tableName)) {
+				ResultSet rs = dbmd.getColumns(null, getSchema(conn), tableName, "%");
+				//ResultSetMetaData rsmd = rs.getMetaData(); // 得到结果集(rs)的结构信息，比如字段数、字段名等
+				//printResultSetMetaData(rsmd);
+				printResultSet(rs);
+			}
+		}
+		DbUtils.close(TYPE);
+	} 
+	
+	public static void printResultSetMetaData(ResultSetMetaData rsmd) {
+		System.out.println("----------打印rsmd开始--------------");
+		try {
+			for(int i=1; i<=rsmd.getColumnCount(); i++) {
+				String columnLabel = rsmd.getColumnLabel(i);
+				String columnClassName = rsmd.getColumnTypeName(i);
+				// 长度
+				int length = rsmd.getColumnDisplaySize(i);
+				// 有效位数
+				int precision = rsmd.getPrecision(i);
+				// 精度
+				int scale = rsmd.getScale(i);
+				System.out.println("Label:"+columnLabel + "\tClassName:"+columnClassName+
+						"\tlength:"+length + "\tprecision:"+precision + "\tscale:"+scale);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("-----------打印rsmd结束-------------");
+	}
+	
+	public static void printResultSet(ResultSet rs) {
+		System.out.println("----------打印resultSet开始--------------");
+		try {
+			while(rs.next()) {
+				System.out.println("字段名："+rs.getString("COLUMN_NAME") +
+						"\t字段注释："+rs.getString("REMARKS") + 
+						"\t字段数据类型："+rs.getString("TYPE_NAME"));  
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("----------打印resultSet结束--------------");
+	}
+	
+	private static String changeDbType(String dbType) {  
+        dbType = dbType.toUpperCase();  
+        if(dbType.equals("VARCHAR") || dbType.equals("VARCHAR2") || dbType.equals("CHAR")) {
+            return "1"; 
+        } else if(dbType.equals("NUMBER") || dbType.equals("DECIMAL")) {
+        	return "4";  
+        } else if(dbType.equals("INT") || dbType.equals("SMALLINT") || dbType.equals("INTEGER")) {
+        	return "2";  
+        } else if(dbType.equals("BIGINT")) {
+        	return "6";  
+        } else if(dbType.equals("DATETIME") || dbType.equals("TIMESTAMP") || dbType.equals("DATE")) {
+        	return "7";  
+        } else {
+        	return "1";
+        }
+    }  
+	
+	/**
+	 * 其他数据库不需要这个方法 oracle和db2需要  
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+    public static String getSchema(Connection conn) throws Exception {  
+        String schema;  
+        schema = conn.getMetaData().getUserName();  
+        System.out.println("[schema]="+schema);
+        if ((schema == null) || (schema.length() == 0)) {  
+            throw new Exception("ORACLE数据库模式不允许为空");  
+        }  
+        return schema.toUpperCase().toString();  
+    } 
 	
 	private String getRandom(boolean zero, int max) {
 		int i = new Random().nextInt(max);
