@@ -1,28 +1,22 @@
 package corejava.string;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.junit.Test;
 
 public class StrTest {
 
+	public void contains() {
+		String str = "${User?id}";
+	}
+	
 	@Test
 	public void replaceTest() {
 		StrTest obj = new StrTest();
 		StrTest obj2 = null;
 		if(obj2 instanceof StrTest) {
-			System.out.println("正是在下");
+			System.out.println("正是在下".toLowerCase());
 		} else {
-			System.out.println("你认错人了");
+			System.out.println("你认错人了".toLowerCase());
 		}
-	}
-	
-	@Test
-	public void stringTemplateTest() {
-//		StringTemplate st = new StringTemplate("select $column$ from $table")
-//		st.SetAttribute("column", "uid");
-//		st.SetAttribute("table", "users");
 	}
 	
 	@Test
