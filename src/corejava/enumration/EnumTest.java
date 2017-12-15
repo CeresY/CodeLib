@@ -7,23 +7,31 @@ public class EnumTest {
 	
 	public enum OPER {
 		ADD("add"), EDIT("edit"),DELETE("delete"),SAVE("save"),USE("use");
-		private String index;
-		private OPER(String index) {
-			this.index = index;
+		private String param;
+		private OPER(String param) {
+			this.param = param;
 		}
-		public String getIndex() {
-			return index;
+		public String getParam() {
+			return param;
 		}
 	}
 	
 	@Test
 	public void printSome() {
 		System.out.println("OPER.ADD: " + OPER.ADD);
-		System.out.println("OPER.ADD.index: " + OPER.ADD.index);
-		System.out.println("OPER.ADD.getIndex(): " + OPER.ADD.getIndex());
+		System.out.println("OPER.ADD.param: " + OPER.ADD.param);
+		System.out.println("OPER.ADD.getParam(): " + OPER.ADD.getParam());
 		System.out.println("OPER.ADD.name(): " + OPER.ADD.name());
 		System.out.println("OPER.ADD.ordinal(): " + OPER.ADD.ordinal());
 		System.out.println("OPER.ADD.toString(): " + OPER.ADD.toString());
+		
+		// ´òÓ¡½á¹û
+		/*OPER.ADD: ADD
+		OPER.ADD.param: add
+		OPER.ADD.getParam(): add
+		OPER.ADD.name(): ADD
+		OPER.ADD.ordinal(): 0
+		OPER.ADD.toString(): ADD*/
 	}
 	
 	
