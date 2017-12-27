@@ -19,4 +19,14 @@ public class RandomTest {
 			System.out.println(nano);
 		}
 	}
+	
+	public String getRandom(int upper) {
+		int i = new Random().nextInt(upper);
+		if(i<65) {
+			return getRandom(upper);
+		} else {
+			return String.valueOf((char)i);
+		}
+		
+	}
 }
