@@ -33,6 +33,14 @@ public class RegularExpressionTest {
 	}
 	
 	@Test
+	public void chinese() {
+		String str = "abc_汉字fjfk5中6文7ad汉族678ol,2017-12-20 21:50:59.jhgfcn6m汉字567iolansdlfasd=-09";
+		String regex = "50";
+		find(str, regex);
+		matcher(str, regex);
+	}
+	
+	@Test
 	public void test1() {
 		matcher("", "^[a-zA-Z]\\w{7,31}$");
 		matcher("${User?id}", "^\\$\\{(User)(_){0,1}.*(id)\\}$");
@@ -56,7 +64,7 @@ public class RegularExpressionTest {
 		while (m.find()) {
 			System.out.println(m.group() + "\t" + m.start() + "\t" + m.end());
 		}
-		System.out.println("___________________");
+		System.out.println("-----------------");
 	}
 	
 }
