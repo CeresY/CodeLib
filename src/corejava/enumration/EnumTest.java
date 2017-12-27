@@ -23,6 +23,7 @@ public class EnumTest {
 		System.out.println("OPER.ADD.getParam(): " + OPER.ADD.getParam());
 		System.out.println("OPER.ADD.name(): " + OPER.ADD.name());
 		System.out.println("OPER.ADD.ordinal(): " + OPER.ADD.ordinal());
+		System.out.println("OPER.EDIT.ordinal(): " + OPER.EDIT.ordinal());
 		System.out.println("OPER.ADD.toString(): " + OPER.ADD.toString());
 		
 		// ´òÓ¡½á¹û
@@ -31,6 +32,7 @@ public class EnumTest {
 		OPER.ADD.getParam(): add
 		OPER.ADD.name(): ADD
 		OPER.ADD.ordinal(): 0
+		OPER.EDIT.ordinal(): 1
 		OPER.ADD.toString(): ADD*/
 	}
 	

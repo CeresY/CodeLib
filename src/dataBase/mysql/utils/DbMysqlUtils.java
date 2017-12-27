@@ -14,7 +14,8 @@ import java.sql.Statement;
  */
 public class DbMysqlUtils {
 	static final String DRIVER = "com.mysql.jdbc.Driver";
-	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
+	static final String URL = "jdbc:mysql://172.16.206.56/vbi_35dd";
+//	static final String URL = "jdbc:mysql://127.0.0.1:3306/vbi2";
 	//static final String URL = "jdbc:mysql://172.16.206.31:3306/vbi2";
 	static final String USER = "vbi";
 	static final String PWD = "123456";

@@ -24,7 +24,7 @@ public class TreeShow {
 	
 	private static final File destination = new File("C://temp//tree.txt");
 	
-	private static final DB TYPE = DB.MYSQL;
+	private static final DB TYPE = DB.ORACLE;
 	/**
 	 * 从叶子节点展示到根节点
 	 */
@@ -52,7 +52,7 @@ public class TreeShow {
 		/*String sql_manyRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.LEVEL_=0 ORDER BY T.LEVEL_ ASC, T.ORDER_ ASC ";
 		List<TreeNode> rootList = TreeUtils.setResult(state, sql_manyRoot);*/
 		
-		String singleRoot = "2c904ef25eb82101015eb82a19690007";
+		String singleRoot = "d117350374534819b7b786a886bef71e";
 		String sql_singleRoot = "SELECT * FROM SYSTEM_PERMISSION T WHERE T.ID = '"+singleRoot+"' ";
 		List<TreeNode> rootList = TreeUtils.setResult(state, sql_singleRoot);
 		

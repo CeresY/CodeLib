@@ -18,7 +18,7 @@ import dataBase.mysql.utils.DbUtils;
 import dataBase.mysql.utils.DbUtils.DB;
 
 public class DateTest {
-	private static final DB TYPE = DB.MYSQL;
+	private static final DB TYPE = DB.ORACLE;
 	
 	/**
 	 * 插入语句

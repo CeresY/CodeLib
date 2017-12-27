@@ -15,7 +15,8 @@ import java.sql.Statement;
  */
 public class DbOracleUtils {
 	static final String DRIVER = "oracle.jdbc.OracleDriver";
-	static final String URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
+//	static final String URL = "jdbc:oracle:thin:@127.0.0.1:1521:orcl"; // 172.16.206.31
+	static final String URL = "jdbc:oracle:thin:@172.16.206.31:1521:orcl"; 
 	static final String USER = "vbi";
 	static final String PWD = "123456";
 	static Connection conn = null;
