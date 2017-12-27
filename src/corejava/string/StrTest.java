@@ -1,11 +1,71 @@
 package corejava.string;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 public class StrTest {
+	
+	/**
+	 * 截取汉字
+	 * @throws UnsupportedEncodingException 
+	 */
+	@Test
+	public void splitChinese() throws UnsupportedEncodingException {
+		int len = 7;
+		String str = "a中b文c123汉字";
+		char[] ch = str.toCharArray();
+		int currentLen = 0;
+		StringBuffer sb = new StringBuffer();
+		for(int i=0; i<ch.length; i++) {
+			currentLen += String.valueOf(ch[i]).getBytes("UTF-8").length;
+			if(currentLen <= len) {
+				sb.append(ch[i]);
+			}
+		}
+		System.out.println(sb.toString());
+	}
 
-	public void contains() {
-		String str = "${User?id}";
+	@Test
+	public void aplist2() {
+		String str = "a中b文c123汉字";
+		char exp = 0;
+		switch (exp) {
+		case 0:
+			int idx = 3;
+			String splitStr = str.substring(0, idx);
+			System.out.println("splitStr:" + splitStr);
+			try {
+				int move = idx;
+				while(splitStr.getBytes("UTF-8").length > move) {
+					System.out.println(splitStr.substring(0, --idx));
+				}
+			} catch (UnsupportedEncodingException e1) {
+				e1.printStackTrace();
+			}
+			break;
+		case 1:
+			try {
+				byte[] b = str.getBytes("UTF-8");
+				for(int i=0; i<b.length; i++) {
+					System.out.println((char)b[i]);
+				}
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+			break;
+		case 2:
+			char[] ch = str.toCharArray();
+			for(int i=0; i<ch.length; i++) {
+				System.out.println(ch[i]);
+			}
+			break;
+		default:
+			break;
+		}
+		
 	}
 	
 	@Test
