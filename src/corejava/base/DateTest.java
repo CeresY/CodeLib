@@ -18,6 +18,17 @@ public class DateTest {
 	private static SimpleDateFormat sdf_date = new SimpleDateFormat("yyyy-MM-dd");
 	
 	/**
+	 * 格式化13位时间戳
+	 */
+	@Test
+	public void formate13() {
+		String dateStr = "1493082046953";
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+		String value = df.format(new Date(Long.valueOf(dateStr)));
+		System.out.println(value);
+	}
+	
+	/**
 	 * 获取当月最后一天和第一天
 	 * @throws ParseException 
 	 */
